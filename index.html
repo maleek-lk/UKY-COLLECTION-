@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#D8C7E7">
+<title>UKY COLLECTION | Beauty & More</title>
+
+<style>
+/* =========================================
+   EDITABLE COLORS
+========================================= */
+:root {
+  --purple: #D8C7E7;
+  --plum: #9B859E;
+  --gold: #D4C379;
+  --deep-gold: #C5B057;
+  --cream: #FCFAFD;
+  --white: #FFFFFF;
+  --text: #302735;
+}
+
+/* BASIC STYLES */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--cream);
+  color: var(--text);
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+img {
+  display: block;
+  width: 100%;
+  object-fit: cover;
+}
+
+.container {
+  width: 90%;
+  max-width: 1150px;
+  margin: auto;
+}
+
+.section {
+  padding: 60px 0;
+}
+
+.section-heading {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.section-heading small {
+  color: var(--plum);
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 10px;
+  font-weight: bold;
+}
+
+.section-heading h2 {
+  font-family: Georgia, serif;
+  font-size: clamp(28px, 5vw, 40px);
+  color: var(--plum);
+  font-weight: normal;
+  margin-top: 6px;
+}
+
+.section-heading p {
+  font-size: 13px;
+  opacity: .7;
+  margin-top: 6px;
+}
+
+.button {
+  display: inline-block;
+  padding: 12px 21px;
+  background: var(--plum);
+  color: white;
+  font-size: 11px;
+  letter-spacing: 1px;
+  border-radius: 3px;
+  transition: .25s;
+}
+
+.button:hover {
+  background: var(--deep-gold);
+  color: #302735;
+  transform: translateY(-2px);
+}
+
+/* =========================================
+   SIMPLE HEADER — NO NAVIGATION
+========================================= */
+header {
+  background: var(--cream);
+  border-bottom: 1px solid #e9e0ed;
+}
+
+.header-inner {
+  min-height: 68px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.brand {
+  color: var(--plum);
+  font-family: Georgia, serif;
+  font-size: 21px;
+  letter-spacing: 2px;
+  text-align: center;
+}
+
+/* =========================================
+   HERO
+   Background: assets/uky-background.webp
+   Keep the text short so the image stands out.
+========================================= */
+.hero {
+  min-height: 490px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 45px 20px;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(35, 24, 42, .12),
+      rgba(35, 24, 42, .48)
+    ),
+    url("assets/uky-background.webp") center/cover no-repeat;
+}
+
+.hero-content {
+  max-width: 600px;
+  color: white;
+}
+
+.hero p {
+  font-family: "Brush Script MT", "Segoe Script", cursive;
+  font-size: clamp(30px, 6vw, 49px);
+  line-height: 1.25;
+  text-shadow: 0 2px 12px #0006;
+  margin-bottom: 24px;
+}
+
+.hero .button {
+  background: var(--gold);
+  color: #302735;
+}
+
+.hero .button:hover {
+  background: var(--purple);
+}
+
+/* SMALL PROMO STRIP */
+.promo-strip {
+  text-align: center;
+  padding: 13px 10px;
+  background: var(--purple);
+  color: #493b50;
+  font-family: Georgia, serif;
+  font-size: 15px;
+}
+
+/* =========================================
+   FEATURED COLLECTION
+========================================= */
+.featured-track {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  padding-bottom: 15px;
+  scrollbar-width: thin;
+  scrollbar-color: var(--plum) transparent;
+}
+
+.featured-item {
+  flex: 0 0 165px;
+  text-align: center;
+}
+
+.featured-item img {
+  height: 180px;
+  object-fit: cover;
+  background: var(--purple);
+  border-radius: 5px;
+}
+
+.featured-item p {
+  font-family: Georgia, serif;
+  color: var(--plum);
+  margin-top: 9px;
+  font-size: 14px;
+}
+
+/* =========================================
+   PRODUCT CATALOG
+========================================= */
+.products {
+  background: #F5F0F8;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.product-card {
+  background: white;
+  border: 1px solid #e7ddeb;
+  border-radius: 5px;
+  overflow: hidden;
+  transition: .25s;
+}
+
+.product-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px #49354c12;
+}
+
+.product-card img {
+  height: 215px;
+  background: #eee6f1;
+}
+
+.product-info {
+  padding: 13px;
+}
+
+.product-info h3 {
+  font-family: Georgia, serif;
+  color: var(--plum);
+  font-size: 15px;
+  font-weight: normal;
+}
+
+.product-info p {
+  font-size: 11px;
+  opacity: .7;
+  margin: 5px 0 12px;
+}
+
+.order-button {
+  display: block;
+  text-align: center;
+  padding: 9px;
+  color: #302735;
+  background: var(--gold);
+  border-radius: 3px;
+  font-size: 10px;
+  letter-spacing: .5px;
+}
+
+.order-button:hover {
+  background: var(--purple);
+}
+
+/* =========================================
+   QUOTES
+========================================= */
+.quotes {
+  background: var(--cream);
+}
+
+.quote-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 17px;
+}
+
+.quote-card {
+  padding: 25px 18px;
+  text-align: center;
+  background: white;
+  border: 1px solid #e8deeb;
+  border-radius: 5px;
+}
+
+.quote-card span {
+  color: var(--deep-gold);
+  font-family: Georgia, serif;
+  font-size: 30px;
+}
+
+.quote-card p {
+  font-family: Georgia, serif;
+  font-size: 16px;
+  color: var(--plum);
+}
+
+/* =========================================
+   ABOUT
+========================================= */
+.about-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 35px;
+}
+
+.about-image {
+  height: 320px;
+  border-radius: 5px;
+  background: var(--purple);
+}
+
+.about-text small {
+  color: var(--deep-gold);
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+.about-text h2 {
+  font-family: Georgia, serif;
+  font-weight: normal;
+  color: var(--plum);
+  font-size: 34px;
+  line-height: 1.2;
+  margin: 12px 0 16px;
+}
+
+.about-text p {
+  font-size: 13px;
+  opacity: .8;
+  margin-bottom: 16px;
+}
+
+/* =========================================
+   FINAL CTA
+========================================= */
+.final-cta {
+  padding: 50px 20px;
+  text-align: center;
+  background: var(--plum);
+  color: white;
+}
+
+.final-cta h2 {
+  font-family: Georgia, serif;
+  font-size: clamp(28px, 5vw, 39px);
+  font-weight: normal;
+}
+
+.final-cta p {
+  font-size: 13px;
+  margin: 10px 0 22px;
+}
+
+.final-cta .button {
+  background: var(--gold);
+  color: #302735;
+}
+
+/* FOOTER */
+footer {
+  background: #302735;
+  color: #eee4f0;
+  text-align: center;
+  padding: 27px 10px;
+  font-size: 11px;
+}
+
+footer strong {
+  display: block;
+  font-family: Georgia, serif;
+  font-size: 19px;
+  font-weight: normal;
+  letter-spacing: 2px;
+}
+
+footer p {
+  margin-top: 6px;
+  opacity: .75;
+}
+
+/* FLOATING WHATSAPP */
+.whatsapp-float {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  z-index: 99;
+  background: #247b48;
+  color: white;
+  padding: 12px 16px;
+  border-radius: 30px;
+  font-size: 12px;
+  box-shadow: 0 4px 15px #0002;
+}
+
+/* MOBILE */
+@media (max-width: 800px) {
+  .product-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .product-card img {
+    height: 190px;
+  }
+
+  .quote-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-content {
+    gap: 24px;
+  }
+}
+
+@media (max-width: 500px) {
+  .section {
+    padding: 45px 0;
+  }
+
+  .hero {
+    min-height: 420px;
+    background-position: center;
+  }
+
+  .hero p {
+    font-size: 35px;
+  }
+
+  .featured-item {
+    flex-basis: 145px;
+  }
+
+  .featured-item img {
+    height: 160px;
+  }
+
+  .product-card img {
+    height: 165px;
+  }
+
+  .product-info {
+    padding: 10px;
+  }
+
+  .about-content {
+    grid-template-columns: 1fr;
+  }
+
+  .about-image {
+    height: 250px;
+  }
+
+  .about-text h2 {
+    font-size: 30px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER: MINIMAL BRAND NAME, NO NAVIGATION -->
+<header>
+  <div class="container header-inner">
+    <a href="#" class="brand">UKY COLLECTION</a>
+  </div>
+</header>
+
+<!-- HERO: BACKGROUND IMAGE ALREADY CONTAINS THE BRAND -->
+<section class="hero" id="home">
+  <div class="hero-content">
+    <p>Your beauty.<br>Your scent. Your statement.</p>
+    <a href="#collection" class="button">EXPLORE THE COLLECTION</a>
+  </div>
+</section>
+
+<div class="promo-strip">
+  Little luxuries. Beautiful finds. Endless possibilities.
+</div>
+
+<!-- FEATURED PERFUMES -->
+<section class="section" id="featured">
+  <div class="container">
+    <div class="section-heading">
+      <small>Our favourites</small>
+      <h2>Signature Scents</h2>
+      <p>Find the fragrance that feels like you.</p>
+    </div>
+
+    <div class="featured-track">
+      <div class="featured-item">
+        <img src="assets/lattafa_yara_perfume-01.jpg" alt="Lattafa Yara perfume">
+        <p>Lattafa Yara</p>
+      </div>
+
+      <div class="featured-item">
+        <img src="assets/khamrah_qahwa_perfume.jpg" alt="Khamrah Qahwa perfume">
+        <p>Khamrah Qahwa</p>
+      </div>
+
+      <div class="featured-item">
+        <img src="assets/9_pm_perfume-01.jpg" alt="9 PM perfume">
+        <p>9 PM</p>
+      </div>
+
+      <div class="featured-item">
+        <img src="assets/lattafa_eclaire_perfume-01.jpg" alt="Lattafa Eclaire perfume">
+        <p>Lattafa Eclaire</p>
+      </div>
+
+      <div class="featured-item">
+        <img src="assets/pink_kayali_perfume.jpg" alt="Pink Kayali perfume">
+        <p>Pink Kayali</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCT CATALOG -->
+<section class="section products" id="collection">
+  <div class="container">
+    <div class="section-heading">
+      <small>More to love</small>
+      <h2>Shop the Collection</h2>
+      <p>Perfumes, accessories, beauty essentials, and more.</p>
+    </div>
+
+    <div class="product-grid" id="productGrid"></div>
+  </div>
+</section>
+
+<!-- QUOTES -->
+<section class="section quotes">
+  <div class="container">
+    <div class="section-heading">
+      <small>A little reminder</small>
+      <h2>Beauty in Every Detail</h2>
+    </div>
+
+    <div class="quote-grid">
+      <div class="quote-card">
+        <span>“</span>
+        <p>Perfume is the unseen, unforgettable accessory.</p>
+      </div>
+
+      <div class="quote-card">
+        <span>“</span>
+        <p>Happiness is adding another perfume to your collection!</p>
+      </div>
+
+      <div class="quote-card">
+        <span>“</span>
+        <p>Life is short. Smell iconic.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="section" id="about">
+  <div class="container about-content">
+    <img
+      class="about-image"
+      src="assets/uky-background.webp"
+      alt="UKY Collection"
+      loading="lazy"
+    >
+
+    <div class="about-text">
+      <small>Welcome to UKY</small>
+      <h2>Beautiful Finds, All in One Place.</h2>
+
+      <p>
+        From captivating fragrances to accessories and everyday
+        beauty essentials, UKY COLLECTION brings together little
+        things that make you feel special.
+      </p>
+
+      <p>
+        Discover your favourites and let your personal style shine.
+      </p>
+
+      <a href="#collection" class="button">DISCOVER MORE</a>
+    </div>
+  </div>
+</section>
+
+<!-- WHATSAPP CALL TO ACTION -->
+<section class="final-cta">
+  <h2>Something Beautiful Awaits.</h2>
+  <p>See something you love? Let's get it for you.</p>
+  <a href="#" class="button" id="mainWhatsApp" target="_blank">
+    SHOP WITH US ON WHATSAPP
+  </a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <strong>UKY COLLECTION</strong>
+  <p>Your beauty. Your scent. Your statement.</p>
+  <p>© <span id="year"></span> UKY COLLECTION. All rights reserved.</p>
+</footer>
+
+<a href="#" class="whatsapp-float" id="floatingWhatsApp" target="_blank">
+  WhatsApp Us ↗
+</a>
+
+<script>
+/* =========================================
+   STORE SETTINGS
+========================================= */
+const WHATSAPP_NUMBER = "2348145154634";
+
+/* =========================================
+   PRODUCTS
+   Add or remove items here.
+   Image filenames must match assets/.
+========================================= */
+const products = [
+  { name: "9 PM", image: "9_pm_perfume-01.jpg", category: "Perfume" },
+  { name: "Be Tres Melon", image: "be_tres_melon_perfume.jpg", category: "Perfume" },
+  { name: "Be Tres Mora", image: "be_tres_mora_perfume.jpg", category: "Perfume" },
+  { name: "Bunny Lip Gloss", image: "bunny_lip_gloss-01.jpg", category: "Beauty" },
+  { name: "Cocoa Sunset", image: "cocoa_sunset_perfume-01.jpg", category: "Perfume" },
+  { name: "Elysia Pink", image: "elysia_pink_perfume.jpg", category: "Perfume" },
+  { name: "Elysia Red", image: "elysia_red_perfume.jpg", category: "Perfume" },
+  { name: "Gift Box", image: "gift_box-04.jpg", category: "Gift" },
+  { name: "Gold Mousuf", image: "gold_mousuf_perfume.jpg", category: "Perfume" },
+  { name: "Hayaati Florence", image: "hayaati_florence_perfume.jpg", category: "Perfume" },
+  { name: "Hayaati Gold", image: "hayaati_gold_perfume.jpg", category: "Perfume" },
+  { name: "Khamrah Lattafa", image: "khamrah_lattafa_perfume.jpg", category: "Perfume" },
+  { name: "Khamrah Qahwa", image: "khamrah_qahwa_perfume.jpg", category: "Perfume" },
+  { name: "Lattafa Eclaire", image: "lattafa_eclaire_perfume-01.jpg", category: "Perfume" },
+  { name: "Lattafa Yara", image: "lattafa_yara_perfume-01.jpg", category: "Perfume" },
+  { name: "Pink Kayali", image: "pink_kayali_perfume.jpg", category: "Perfume" },
+  { name: "Pink Mousuf", image: "pink_mousuf_perfume.jpg", category: "Perfume" },
+  { name: "Redrose Kayali", image: "redrose_kayali_perfume.jpg", category: "Perfume" },
+  { name: "Sugar Candy", image: "sugar_candy_perfume.jpg", category: "Perfume" },
+  { name: "Sugar Regular", image: "sugar_regular_perfume.jpg", category: "Perfume" },
+  { name: "Sweet Touch", image: "sweet_touch_perfume-02.jpg", category: "Perfume" },
+  { name: "Van Cleef Bracelet — Pink", image: "van_cleef_braclet_pink.jpg", category: "Accessories" },
+  { name: "Van Cleef Bracelet — Purple", image: "van_cleef_braclet_purple.jpg", category: "Accessories" },
+  { name: "Veil", image: "veils-01.jpg", category: "Accessories" }
+];
+
+/* =========================================
+   AUTOMATIC PRODUCT DISPLAY
+========================================= */
+const grid = document.getElementById("productGrid");
+
+products.forEach(product => {
+  const card = document.createElement("article");
+  card.className = "product-card";
+
+  const image = document.createElement("img");
+  image.src = "assets/" + product.image;
+  image.alt = product.name;
+  image.loading = "lazy";
+
+  const info = document.createElement("div");
+  info.className = "product-info";
+
+  const title = document.createElement("h3");
+  title.textContent = product.name;
+
+  const description = document.createElement("p");
+  description.textContent = product.category + " · DM for price";
+
+  const button = document.createElement("a");
+  button.className = "order-button";
+  button.textContent = "ENQUIRE ON WHATSAPP ↗";
+  button.href = "https://wa.me/" + WHATSAPP_NUMBER +
+    "?text=" + encodeURIComponent(
+      "Hello UKY COLLECTION! I'm interested in " +
+      product.name + ". Please tell me the price."
+    );
+  button.target = "_blank";
+  button.rel = "noopener";
+
+  info.append(title, description, button);
+  card.append(image, info);
+  grid.appendChild(card);
+});
+
+/* GENERAL WHATSAPP LINKS */
+const message = encodeURIComponent(
+  "Hello UKY COLLECTION! I'd like to see your available products."
+);
+
+document.getElementById("mainWhatsApp").href =
+  "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + message;
+
+document.getElementById("floatingWhatsApp").href =
+  "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + message;
+
+/* FOOTER YEAR */
+document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+</body>
+  </html>
